@@ -1,15 +1,13 @@
 
 import React, { Component } from 'react';
-import { CardList } from './components/card-list/card-list.component';
-import ./Component/addy.com
+import "./components/card/addy.styles.css"
 import './App.css';
 
 class 
 App extends Component {
   constructor(){
     super();
-    this.state = {addy:[],
-    checkAddy:"" };
+    this.state = {checkAddy:"" };
     this.handleChange= this.handleChange.bind(this);
     this.handleSubmit=this.handleSubmit.bind(this);
   }
@@ -26,13 +24,11 @@ render(){
   console.log(addy);
   const wallets = ["habeeb"];
   //console.log(checkAddy);  
-  const filteredMonsters = addy.filter(monster => monster.name.toLowerCase().includes(addy.toLocaleLowerCase()));
- 
 
   return (
       <div className="App searchbox">
        <div className='search'>
-       <h1 className='heading'>are you dumplisted?</h1>
+       <h1 className='heading'>are you jointlisted?</h1>
        <form className='faform' onSubmit={this.handleSubmit} >
         <input  type="text" className="searcharea" 
          placeholder='wallet address' value={checkAddy} onChange={this.handleChange}
@@ -41,10 +37,14 @@ render(){
          value="submit" placeholder='wallet address' 
         />
          </form>
-       <h2 className='heading'>you are dumplisted!</h2>
-       
+       <h2 className='heading'>you are jointlisted!</h2>
+        {wallets.map(wallet=> (
+          <div>{wallet===this.state.checkAddy} </div>
+        )
+          )}
+
          </div>
-             <CardList monsters={filteredMonsters}/>
+        
       </div>
     );
   
